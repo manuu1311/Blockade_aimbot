@@ -1,4 +1,6 @@
 # Blockade_aimbot
+***Designed by MrPioSmasher for MrPio smashing.***  
+   
 An attempt to create an aimbot for a game starting from in game screenshots.
 
 | Functionality                | Status |
