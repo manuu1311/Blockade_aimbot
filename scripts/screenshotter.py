@@ -12,6 +12,8 @@ import matplotlib.pyplot as plt
 from winsound import Beep
 from model import segment_detector
 import time
+from mouse_handler import mouse_handler
+
 
 
 
@@ -62,6 +64,7 @@ class keyboard_helper:
         self.w, self.h = pyautogui.size()
         self.model=segment_detector()
         self.timing=True
+        self.mouse=mouse_handler()
     
     # enable aimbot
     def start_detect(self):
@@ -76,7 +79,9 @@ class keyboard_helper:
 
     def detect_loop(self):
         print('Aimbot turned on')
+        self.mouse.start_tracking()
         beep(2000,100)
+
         while self.detecting:
             tf=time.time()
             screen=pyautogui.screenshot().resize(self.model.size)
@@ -89,16 +94,18 @@ class keyboard_helper:
                 beep(1000,100)
                 dx,dy=self.model.get_centroid(predicted)
                 disp_click(screen,predicted,dx,dy)
-                '''
-                plt.imshow(img)
-                plt.plot(dx,dy,marker='x',color='r',markersize=25)
-                plt.axis('off')
-                plt.savefig("prova.png")
-                plt.clf()
-                '''
+                self.move_mouse(dx,dy)
+                left_click()
             pyautogui.sleep(5.0)
         print('detection quit successfully')
         beep(500,100)
+
+    def move_mouse(self,dx,dy):
+        yoff=self.mouse.get_y()
+        self.mouse.move_mouse(0,-yoff)
+        self.mouse.move_mouse(int(dx/coeff(dx)), 0)
+        self.mouse.move_mouse(0,yoff)
+        self.mouse.move_mouse(0, int(dy/coeff(dy)))
 
     #check if model detected an enemy
     def enemy_check(self,prediction):
@@ -112,10 +119,20 @@ class keyboard_helper:
         print('trying to quit detection...')
         self.detecting=0
 
+    def reset_tracking(self):
+        self.mouse.reset_tracking()
+
         
 sensitivity=1.25
-border=575 
-traspose=1.669565
+coeff=lambda x:1.05+abs(x)*0.00067
+trasposey=1.25
+
+print('--- Initializing aimbot')
+detector=keyboard_helper()
+add_hotkey("shift+p",detector.start_detect)
+add_hotkey("shift+l",detector.quit_detect)
+add_hotkey("shift+o",detector.reset_tracking)
+
 print('--- Initializing aimbot')
 detector=keyboard_helper()
 add_hotkey("shift+p",detector.start_detect)
