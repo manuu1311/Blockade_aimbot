@@ -93,6 +93,8 @@ class keyboard_helper:
                 print('enemy detected')
                 beep(1000,100)
                 dx,dy=self.model.get_centroid(predicted)
+                dx=dx/588*1920
+                dy=dy/288*1080
                 disp_click(screen,predicted,dx,dy)
                 self.move_mouse(dx,dy)
                 left_click()
