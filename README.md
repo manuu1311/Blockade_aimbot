@@ -1,14 +1,14 @@
 # Blockade_aimbot
 ***Designed by MrPioSmasher for MrPio smashing.***  
    
-An attempt to create an aimbot for a game starting from in game screenshots.
+An attempt to create an aimbot for a game starting from in game screenshots. Designed as an improvement of [this project](https://github.com/MrPio/BlockadeAimbot)
 
 | Functionality                | Status |
 | -----------------------------|:------:|
-| Image segmentation           |   🔲    |
-| Bounding box detection       |   🔲    |
-| Head detection               |   🔲    |
-| Mouse movement               |   🔲    |
+| Image segmentation           |   ✔️    |
+| Bounding box detection       |   ✔️    |
+| Head detection               |   ✔️    |
+| Mouse movement               |   ✔️    |
 | Testing                      |   🔳    |
 
 ## Screenshots
