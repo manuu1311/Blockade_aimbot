@@ -7,6 +7,8 @@ This is an improved version of [this earlier attempt](https://github.com/MrPio/B
 
 ---
 
+## ✅ Features
+
 | Functionality                | Status |
 | -----------------------------|:------:|
 | Image segmentation           |   ✔️    |
