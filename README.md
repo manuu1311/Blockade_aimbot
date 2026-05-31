@@ -27,7 +27,7 @@ The project features two modes: image segmentation or bounding box detection. In
 A **U-Net** architecture trained to segment the game screen and detect opponent pixels. Since it performs pixel-level classification, it is more accurate, but slower.
 
 ### 2. Bounding Box Detection - YOLO-inspired
-A **simplified, custom YOLO-like architecture** trained to detect bounding boxes around players. It is lightweight and optimized for fast, high-frame-rate.
+A **simplified, custom YOLO-like architecture** trained to detect bounding boxes around players. It is lightweight and optimized for high frame-rate.
 
 In both cases, a simple algorithm is used to detect the head's likely position, starting from the model outputs.
 
